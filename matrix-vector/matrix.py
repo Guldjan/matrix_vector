@@ -88,12 +88,3 @@ class Matrix:
 	def print_matrix(self):
 		for element in self.elements:
 			element.print_vector()
-
-
-m = Matrix([1,2,3], [4,5,6], [7,8,9])
-m2 = Matrix([1,2,3], [4,5,6], [7,8,9])
-m -= m2
-m.print_matrix()
-
-print (m.rows())
-print (m.colums())

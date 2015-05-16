@@ -1,10 +1,10 @@
 """ See:
 https://github.com/Guldjan/matrix-vector
 """
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
-	name='matrix-vector',
+	name='matrix_vector',
 	version='0.0.0',
 	description='A python package for matrices and vectors operations.',
 	url='https://github.com/Guldjan/matrix-vector',

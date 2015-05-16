@@ -1,6 +1,6 @@
-from functools import reduce
 class DifferentDimensionVectors(BaseException):
 	pass
+
 
 class Vector:
     def __init__(self, *args):

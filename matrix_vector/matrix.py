@@ -1,4 +1,4 @@
-#import vector 
+from vector import Vector 
 class Matrix:
 	def __init__(self, *rows):
 		if len(set(len(_) for _ in rows)) <= 1:

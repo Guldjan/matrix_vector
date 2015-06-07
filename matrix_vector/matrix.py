@@ -71,7 +71,7 @@ class Matrix:
 		    if self.same_dimension(other):
 		    	return self.sub_matrix(other)
 		    else:
-		    	raise TypeError("Can't add matrices with different dimensions")
+		    	raise TypeError("Can't substitute matrices with different dimensions")
 		else:
 			return self.sub_number(other)
 

@@ -5,7 +5,7 @@ pip install matrix_vector
 #Features
 This package implements n-dimensional vectors and matrices and operations with them.
 
-Class Vector:
+#Class Vector:
 - add and substitute vectors;
 - add, substitute, multiply and divide vector with number;
 - access elements with [] operatop;
@@ -13,7 +13,7 @@ Class Vector:
 - normalize vector;
 - multiply vector and matrix
 
-Class Matrix:
+#Class Matrix:
 - add and substitute matrices;
 - add, substitute, multiply and divide number to matrix elements;
 - multiply matrices with sutable dimensions;

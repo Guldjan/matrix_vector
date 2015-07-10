@@ -1,11 +1,16 @@
 #matrix_vector
-A python package for matrices and vectors operations.
+ 
+-A python package for matrices and vectors operations.
 #Installation
-pip install matrix_vector
+
+-pip install matrix_vector
+
 #Features
-This package implements n-dimensional vectors and matrices and operations with them.
+
+-This package implements n-dimensional vectors and matrices and operations with them.
 
 #Class Vector:
+ 
 - add and substitute vectors;
 - add, substitute, multiply and divide vector with number;
 - access elements with [] operatop;
@@ -14,6 +19,7 @@ This package implements n-dimensional vectors and matrices and operations with t
 - multiply vector and matrix
 
 #Class Matrix:
+ 
 - add and substitute matrices;
 - add, substitute, multiply and divide number to matrix elements;
 - multiply matrices with sutable dimensions;

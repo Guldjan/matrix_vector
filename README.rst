@@ -123,7 +123,7 @@ The package implements two classes - Vector and Matrix.
         number : (Numeric)
 
   # Vector#__xor__(self, other)
-     Returns the scalar product of two 3-dimension vectors. Returns new object.
+     Returns the cross product of two 3-dimension vectors. Returns new object.
 
         Example:
         >> Vector(1, 2, 3) ^ Vector(4, 5, 6)
@@ -177,7 +177,7 @@ The package implements two classes - Vector and Matrix.
 
         Example:
         >> Vector(1, 2, 3).normalized()
-        => Vector(0.2672, 0.5345, 0.8017)
+        => Vector(0.2673, 0.5345, 0.8018)
 
         Arguments:
         No arguments
@@ -187,10 +187,20 @@ The package implements two classes - Vector and Matrix.
 
         Example:
         >> Vector(1, 2, 3).normalize()
-        => Vector(0.2672, 0.5345, 0.8017)
+        => Vector(0.2673, 0.5345, 0.8018)
 
         Arguments:
         No arguments
+
+   # Vector#round(self, number):
+        Rounds the coordinates of the vector. Changes the object.
+
+        Example:
+        >> Vector(1.345, 2.438, 3.535).round(2)
+        => Vector(1.34, 2.44, 3.53)
+
+        Arguments:
+        number : (int)
 
 
 
@@ -404,3 +414,13 @@ The package implements two classes - Vector and Matrix.
 
 		Arguments:
 		no arguments
+
+ # Matrix#round(self, number)
+	 Rounds the elements of the matrix. Changes the object.
+
+        Example:
+        >> Matrix([-0.093, 0.131, 0.323], [-0.092, 0.242, 0.211], [0.272, -0.173, -0.192]).round(2)
+        => Matrix([-0.09, 0.13, 0.32], [-0.09, 0.24, 0.21], [0.27, -0.17, -0.19])
+
+        Arguments:
+        number : (int)

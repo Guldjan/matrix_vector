@@ -1,12 +1,12 @@
-
 class DifferentDimensionVectors(BaseException):
-	pass
-"""
-  Class implementing vectors.
-"""
+    pass
+
 
 class Vector:
-    
+    """
+    Class implementing vectors.
+    """
+
     def __init__(self, *args):
         """
         Initialize a Vector object.
@@ -20,10 +20,9 @@ class Vector:
         """
         self.coordinates = list(args)
 
-
     @property
     def size(self):
-        """ 
+        """
         Returns the size of the vector(number of coordinates).
         Example:
 
@@ -35,14 +34,13 @@ class Vector:
         """
         return len(self.coordinates)
 
-
     def __len__(self):
         return self.size
 
-
     def __add__(self, other):
         """
-        Adds two vectors or adds a number to the elements of vector. Returns a new object.
+        Adds two vectors or adds a number to the elements of vector.
+        Returns a new object.
 
         Example:
         >> Vector(1, 2, 3) + Vector(4, 5, 6)
@@ -66,10 +64,10 @@ class Vector:
         else:
             return Vector(*[x + other for x in self.coordinates])
 
-
     def __sub__(self, other):
         """
-        Substracts two vectors or substracts a number from the elements of the vector. Returns a new object.
+        Substracts two vectors or substracts a number from
+        the elements of the vector. Returns a new object.
 
         Example:
         >> Vector(1, 2, 3) - Vector(4, 5, 6)
@@ -93,11 +91,10 @@ class Vector:
         else:
             return Vector(*[_ - other for _ in self.coordinates])
 
-    
-
     def __iadd__(self, other):
         """
-        Adds two vectors or adds a number to the elements of the vector. Changes the object.
+        Adds two vectors or adds a number to the
+        elements of the vector. Changes the object.
 
         Example:
         >> Vector(1, 2, 3) += Vector(4, 5, 6)
@@ -115,11 +112,10 @@ class Vector:
         self = self + other
         return self
 
-    
-
     def __isub__(self, other):
         """
-        Substracts two vectors or substracts a number from the elements of the vector. Changes the object.
+        Substracts two vectors or substracts a number from the
+        elements of the vector. Changes the object.
 
         Example:
         >> Vector(1, 2, 3) -= Vector(4, 5, 6)
@@ -137,7 +133,6 @@ class Vector:
         self = self - other
         return self
 
-
     def __getitem__(self, key):
         """
         Access elements of the vector with [] operator
@@ -151,10 +146,10 @@ class Vector:
         """
         return self.coordinates[key]
 
-
     def __mul__(self, other):
         """
-        Depending on the argument either multiplies a number with the elements of the vector or finds the scalar product of two vectors.
+        Depending on the argument either multiplies a number with
+        the vector or finds the scalar product of two vectors.
         Example:
         >> Vector(1, 2, 3) * 2
         => Vector(2, 4, 6)
@@ -171,16 +166,17 @@ class Vector:
         if type(other) is Vector:
             if other.size == self.size:
                 return sum(x * y for x, y in
-                               zip(self.coordinates, other.coordinates))
+                           zip(self.coordinates, other.coordinates))
             else:
-                raise DifferentDimensionVectors("Can't multipy vectors with different dimensions")
+                raise DifferentDimensionVectors(
+                    "Can't find scalar of vectors with different dimensions")
         else:
             return Vector(*[_ * other for _ in self.coordinates])
 
-
     def __imul__(self, other):
         """
-        Multiplies a number with the elements of the vector changing the object.
+        Multiplies a number with the elements
+        of the vector changing the object.
 
         Example:
         >> Vector(1, 2, 3) * 2
@@ -193,12 +189,13 @@ class Vector:
             self = self * other
             return self
         else:
-            raise TypeError("Can't assign number to Vector class object")
-
+            raise TypeError(
+                "Can't assign number to Vector class object")
 
     def __xor__(self, other):
         """
-        Returns the scalar product of two 3-dimension vectors. Returns new object.
+        Returns the cross product of two 3-dimension vectors.
+        Returns new object.
 
         Example:
         >> Vector(1, 2, 3) ^ Vector(4, 5, 6)
@@ -213,12 +210,13 @@ class Vector:
             coordinate_z = self[0] * other[1] - self[1] * other[0]
             return Vector(coordinate_x, coordinate_y, coordinate_z)
         else:
-        	raise TypeError("Vector product only defined for 3 dimensional vectors")
-
+            raise TypeError(
+                "Vector product only defined for 3 dimensional vectors")
 
     def __ixor__(self, other):
         """"
-        Returns the scalar product of two 3-dimension vectors. Changes the object.
+        Returns the scalar product of two 3-dimension vectors.
+        Changes the object.
 
         Example:
         >> Vector(1, 2, 3) ^ Vector(4, 5, 6)
@@ -230,10 +228,10 @@ class Vector:
         self = self ^ other
         return self
 
-
     def __truediv__(self, other):
         """
-        Divides the elements of the vector by a nubmer. Returns new object.
+        Divides the elements of the vector by a nubmer.
+        Returns new object.
 
         Example:
         >> Vector(3, 9, 6) / 3
@@ -243,40 +241,39 @@ class Vector:
         number : (Numeric)
         """
         try:
-            return Vector(*[ _ / other for _ in self.coordinates])
+            return Vector(*[_ / other for _ in self.coordinates])
         except ZeroDivisionError:
             raise
 
-
     def __itruediv__(self, other):
         """
-        Divides the elements of the vector by a nubmer. Changes the object.
+        Divides the elements of the vector by a nubmer.
+        Changes the object.
 
         Example:
         >> Vector(3, 9, 6) / 3
         => Vector(1, 3, 2)
-        
+
         Arguments:
         number : (Numeric)
         """
         self = self / other
         return self
 
-
     @property
     def length(self):
+
         """
         Returns the length of the vector.
-        
+
         Example:
         >> Vector(1, 2, 3).length
-        => 3.7416
+        => 3.7417
 
         Arguments:
         No arguments
         """
         return sum(_ ** 2 for _ in self.coordinates) ** 0.5
-
 
     def normalized(self):
         """
@@ -284,13 +281,12 @@ class Vector:
 
         Example:
         >> Vector(1, 2, 3).normalized()
-        => Vector(0.2672, 0.5345, 0.8017)
+        => Vector(0.2673, 0.5345, 0.8018)
 
         Arguments:
         No arguments
         """
         return self / self.length
-
 
     def normalize(self):
         """
@@ -298,20 +294,27 @@ class Vector:
 
         Example:
         >> Vector(1, 2, 3).normalize()
-        => Vector(0.2672, 0.5345, 0.8017)
+        => Vector(0.2673, 0.5345, 0.8018)
 
         Arguments:
         No arguments
         """
-        self = self.normalized()
+        self.coordinates = self.normalized().coordinates
         return self
 
+    def round(self, number):
+        """
+        Rounds the coordinates of the vector. Changes the object.
+
+        Example:
+        >> Vector(1.345, 2.438, 3.535).round(2)
+        => Vector(1.34, 2.44, 3.53)
+
+        Arguments:
+        number : (int)
+        """
+        self.coordinates = [round(x, number) for x in self.coordinates]
+        return self
 
     def __eq__(self, vector):
         return self.coordinates == vector.coordinates
-
-
-    def print_vector(self):
-    	for _ in self.coordinates:
-    		print(_, end='   ')
-    	print()
